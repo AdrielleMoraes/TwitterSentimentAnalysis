@@ -7,7 +7,7 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 @app.route('/')
 def index():
-    return render_template('home.html', body_text="hello world")
+    return {"name":"Hello World"}
 
 @app.route('/about')
 def about():
