@@ -7,11 +7,11 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 @app.route('/')
 def index():
-    return render_template('home.html', project_title='Our project 2021', body_text="hello world")
+    return render_template('home.html', body_text="hello world")
 
 @app.route('/about')
 def about():
-    return render_template('about.html', project_title='Our project 2021', body_text="aabout")
+    return render_template('about.html', body_text="about")
 
 @app.route('/process',methods=['POST'])
 def process():
@@ -25,5 +25,5 @@ def process():
     return render_template('process.html', filename=os.path.join(app.config['UPLOAD_FOLDER'],data.filename))
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 

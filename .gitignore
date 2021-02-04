@@ -4,3 +4,6 @@ env
 .venv
 .vscode
 __pycache__
+uploads
+
+APIkeys.py
