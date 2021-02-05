@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
-@app.route('/')
+@app.route('/home')
 def index():
     return {"name":"Hello World"}
 
