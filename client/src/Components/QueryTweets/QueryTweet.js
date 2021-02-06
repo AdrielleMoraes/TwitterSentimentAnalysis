@@ -7,8 +7,9 @@ const QueryTweet = (props) => {
 
     const [requestFromAPI, requestFromAPISet] = useState(false)
 
-    const RequestAPIHandler= () => {
-        return requestFromAPISet(true)
+    const RequestAPIHandler= (query) => {
+        console.log(query)
+        //return requestFromAPISet(true)
     }
 
     return(<Container>

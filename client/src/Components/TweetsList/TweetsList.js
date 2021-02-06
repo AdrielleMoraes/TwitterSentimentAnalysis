@@ -29,6 +29,7 @@ const TweetsList = (props) => {
                             return <Tweet
                                 name={tweet.author_name}
                                 key={tweet.id}
+                                id={tweet.id}
                                 created_at={tweet.created_at}
                                 text={tweet.text}
                                 hashtags={tweet.hashtags}

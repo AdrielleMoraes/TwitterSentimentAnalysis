@@ -9,9 +9,9 @@ const Tweet = (props) => {
           {/* <Button onClick={()=>{}} >Add</Button> */}
         </List.Content>
         <List.Content>
-            <List.Header as='a'>{props.name}</List.Header>
-            <List.Description as='a'>{props.text}</List.Description>
-            <p>Created at: {props.created_at}</p>
+            <List.Header>{props.name} <a target="blank" href={"https://twitter.com/user/status/"+ props.id}>Visit</a></List.Header>
+            <List.Description>Created at: {props.created_at}</List.Description>
+            <p>{props.text}</p>
             <p>Liked by {props.favourite_count}</p>
         </List.Content>
       </List.Item>

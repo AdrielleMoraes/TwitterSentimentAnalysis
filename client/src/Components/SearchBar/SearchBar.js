@@ -1,17 +1,27 @@
-import React from 'react'
+import React, {useState, useRef, createRef} from 'react'
 import { Form, Button, Icon, Input } from 'semantic-ui-react'
 
 const SearchBar = (props) => {
 
-    const hello = () => { return console.log("hello") }
+    const [query, setQuery] = useState('')
+    
+
+    const onChangeHandler = (event)=>{
+        setQuery(event.target.value)
+    }
+    
+    const hello = () => { console.log(query) }
     //add loading property when loading results and action={{ icon: 'search' }} onClickSearch
     return (
-        <Form loading={false}>
+        <Form onSubmit={hello} loading={false}>
             <Form.Group>
                 <Form.Field width={14}>
-                    <Input placeholder='Machine Learning, Artificial Intelligence, Programming...'></Input>
-                </Form.Field> 
-                <Button icon floated="right" onClick={hello} width={2}><Icon name="search" /></Button>
+                    <Input
+                        
+                        placeholder='Machine Learning, Artificial Intelligence, Programming...' 
+                        onChange={onChangeHandler}/>
+                </Form.Field>
+                {/* <Button icon floated="right" type="submit" width={2}><Icon name="search" /></Button> */}
             </Form.Group>
         </Form>
     )
