@@ -1,10 +1,20 @@
 import React from 'react'
-import { Input } from 'semantic-ui-react'
+import { Form, Button, Icon, Input } from 'semantic-ui-react'
 
 const SearchBar = (props) => {
 
-    //add loading property when loading results and action={{ icon: 'search' }}
-    return(<Input  fluid icon='search' placeholder='Search tweets...' />)
+    const hello = () => { return console.log("hello") }
+    //add loading property when loading results and action={{ icon: 'search' }} onClickSearch
+    return (
+        <Form loading={false}>
+            <Form.Group>
+                <Form.Field width={14}>
+                    <Input placeholder='Machine Learning, Artificial Intelligence, Programming...'></Input>
+                </Form.Field> 
+                <Button icon floated="right" onClick={hello} width={2}><Icon name="search" /></Button>
+            </Form.Group>
+        </Form>
+    )
 }
 
 export default SearchBar

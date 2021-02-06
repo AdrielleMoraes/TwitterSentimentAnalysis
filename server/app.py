@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import os
+import twitterAPI as api
 
 app = Flask(__name__)
 
@@ -7,7 +7,9 @@ app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 @app.route('/home')
 def index():
-    return {"name":"Hello World"}
+    apiResponse = api.queryOnTwitterAPI()
+    print(apiResponse)
+    return apiResponse
 
 @app.route('/about')
 def about():

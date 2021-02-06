@@ -10,7 +10,9 @@ const Tweet = (props) => {
         </List.Content>
         <List.Content>
             <List.Header as='a'>{props.name}</List.Header>
-            <List.Description as='a'>Updated 10 mins ago</List.Description>
+            <List.Description as='a'>{props.text}</List.Description>
+            <p>Created at: {props.created_at}</p>
+            <p>Liked by {props.favourite_count}</p>
         </List.Content>
       </List.Item>
     )
