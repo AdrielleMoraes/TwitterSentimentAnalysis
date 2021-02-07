@@ -1,0 +1,17 @@
+
+.teste {
+    display: flex;
+    width: 	100%;
+    position: relative;
+}
+
+div .input {
+    width: 100% !important;
+}
+
+.teste button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}

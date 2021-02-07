@@ -9,7 +9,7 @@ const TweetsList = (props) => {
     useEffect(() => {
         if(props.requestFromAPI)
             fetchTweets()
-    }, []) //on runs when component first mounts
+    }, [props.requestFromAPI]) //on runs when component first mounts
 
     const fetchTweets = ()=>{
         fetch("/home").then(response => response.json().then(data => {

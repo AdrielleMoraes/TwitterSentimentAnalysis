@@ -9,7 +9,7 @@ const QueryTweet = (props) => {
 
     const RequestAPIHandler= (query) => {
         console.log(query)
-        //return requestFromAPISet(true)
+        return requestFromAPISet(true)
     }
 
     return(<Container>
