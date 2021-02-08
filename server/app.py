@@ -6,10 +6,15 @@ app = Flask(__name__)
 
 @app.route('/retrieveFromAPI')
 def retrieveFromAPI():
-    query = request.args.get('query')+ " -filter:retweets"
+    query = request.args.get('query')
+
+    if query is None:
+        return "Argument not provided"
+
+    query = query + " -filter:retweets"
     #TODO sanitize query
     print(query)
-    apiResponse = api.queryOnTwitterAPI(query=query)
+    apiResponse = api.queryOnTwitterAPI(query=query, count=20)
     return apiResponse
 
 @app.route('/about')
