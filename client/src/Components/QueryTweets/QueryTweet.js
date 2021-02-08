@@ -1,20 +1,26 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import TweetsList from "../TweetsList/TweetsList"
 import { Container } from 'semantic-ui-react'
 import SearchBar from "../SearchBar/SearchBar"
 
 const QueryTweet = (props) => {
 
-    const [requestFromAPI, requestFromAPISet] = useState(false)
+    const [data, setData] = useState({tweets:[]})
+
+    const fetchTweets = (query)=>{
+        fetch(`/retrieveFromAPI?query=${query}`).then(response => response.json().then(data => {
+            setData(data)
+            console.log(data)
+        }))
+    }
 
     const RequestAPIHandler= (query) => {
-        console.log(query)
-        return requestFromAPISet(true)
+        fetchTweets(query)
     }
 
     return(<Container>
         <SearchBar onClickSearch = {RequestAPIHandler}/>
-        <TweetsList requestFromAPI ={requestFromAPI}/>
+        <TweetsList APIresponse ={data}/>
     </Container>)
 }
 

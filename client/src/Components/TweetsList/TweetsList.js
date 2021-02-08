@@ -4,28 +4,14 @@ import Tweet from "./Tweet/Tweet"
 
 const TweetsList = (props) => {
 
-    const [data, setData] = useState({tweets:[]})
-
-    useEffect(() => {
-        if(props.requestFromAPI)
-            fetchTweets()
-    }, [props.requestFromAPI]) //on runs when component first mounts
-
-    const fetchTweets = ()=>{
-        fetch("/home").then(response => response.json().then(data => {
-            setData(data)
-            console.log(data)
-        }))
-    }
-
     return (
         <div>
-            {data.tweets.length > 0?
+            {props.APIresponse.tweets.length > 0?
                 <div>
-                    <p>Showing {data.tweets.length} Results for query: {data.query}</p>
-                    <p>Data Fetched in {data.completed_in} s</p>
+                    <p>Showing {props.APIresponse.tweets.length} Results for query: {props.APIresponse.query}</p>
+                    <p>Data Fetched in {props.APIresponse.completed_in} s</p>
                     <List selection divided verticalAlign='middle'>
-                        {data.tweets.map(tweet => {
+                        {props.APIresponse.tweets.map(tweet => {
                             return <Tweet
                                 name={tweet.author_name}
                                 key={tweet.id}

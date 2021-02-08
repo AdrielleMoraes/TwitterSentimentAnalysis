@@ -14,6 +14,7 @@ const SearchBar = (props) => {
         <Form onSubmit={() => props.onClickSearch(query)} loading={false}>
             <div className="teste">
                 <Input
+                    required
                     placeholder='Machine Learning, Artificial Intelligence, Programming...'
                     onChange={onChangeHandler} />
                 <button type="submit" className="buttontest"><Icon name="search" /></button>
