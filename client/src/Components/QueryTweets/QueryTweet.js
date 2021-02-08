@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import TweetsList from "../TweetsList/TweetsList"
-import { Container } from 'semantic-ui-react'
 import SearchBar from "../SearchBar/SearchBar"
 
 const QueryTweet = (props) => {
@@ -23,11 +22,10 @@ const QueryTweet = (props) => {
     }
 
     return (
-        <Container>
+        <div>
             <SearchBar loadingAPIResponse={loadingAPIResponse} onClickSearch={RequestAPIHandler} />
             {showAPIResponse ? <TweetsList APIresponse={data} /> : <p>Enter items on search bar</p>}
-
-        </Container>)
+        </div>)
 }
 
 export default QueryTweet
