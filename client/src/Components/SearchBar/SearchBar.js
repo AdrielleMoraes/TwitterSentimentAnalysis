@@ -11,7 +11,7 @@ const SearchBar = (props) => {
 
     //add loading property when loading results and action={{ icon: 'search' }} onClickSearch
     return (
-        <Form onSubmit={() => props.onClickSearch(query)} loading={false}>
+        <Form onSubmit={() => props.onClickSearch(query)} loading={props.loadingAPIResponse}>
             <div className="teste">
                 <Input
                     required

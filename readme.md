@@ -2,7 +2,7 @@
 
 Tweets are retrived using Tweepy
 
-The front-end was developed using javascript and Reac.js
+The front-end was developed using javascript and React
 
 The back-end was developed using flask
 
