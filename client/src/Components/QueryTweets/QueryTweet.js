@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import TweetsList from "../TweetsList/TweetsList"
 import { Container } from 'semantic-ui-react'
 import SearchBar from "../SearchBar/SearchBar"
@@ -10,7 +10,6 @@ const QueryTweet = (props) => {
     const fetchTweets = (query)=>{
         fetch(`/retrieveFromAPI?query=${query}`).then(response => response.json().then(data => {
             setData(data)
-            console.log(data)
         }))
     }
 
