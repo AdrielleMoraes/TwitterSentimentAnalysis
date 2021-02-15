@@ -5,3 +5,7 @@ from sklearn import preprocessing
 # Expanding the contracted and abbreviated text data
 
 # Removing the punctuations and special characters
+
+#Stemming words
+
+#Get lnumber of likes as input?
