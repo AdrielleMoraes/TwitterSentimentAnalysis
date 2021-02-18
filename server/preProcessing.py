@@ -70,6 +70,6 @@ tweets['wordnet_pos'] = tweets['pos_tags'].apply(lambda x: [(word, get_wordnet_p
 stop_words = set(stopwords.words('english')) # set language
 tweets['stopwords_removed'] = tweets['no_punc'].apply(lambda x: [word for word in x if word not in stop_words])
 
-#Get lnumber of likes as input? -- TODO
+#Get lnumber of likes as input? -- TODO depending on ml model
 
 sms.to_csv('sms_span_collection.csv')
