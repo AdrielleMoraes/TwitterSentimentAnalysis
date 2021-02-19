@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import TweetsList from "../TweetsList/TweetsList"
 import SearchBar from "../SearchBar/SearchBar"
+import Chart from "../Graphs/Chart"
 
 const QueryTweet = (props) => {
 
@@ -23,6 +24,7 @@ const QueryTweet = (props) => {
 
     return (
         <div>
+            <Chart/>
             <SearchBar loadingAPIResponse={loadingAPIResponse} onClickSearch={RequestAPIHandler} />
             {showAPIResponse ? <TweetsList APIresponse={data} /> : <p>Enter items on search bar</p>}
         </div>)
