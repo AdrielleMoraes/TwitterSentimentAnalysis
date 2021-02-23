@@ -24,7 +24,7 @@ const QueryTweet = (props) => {
 
     return (
         <div>
-            <Chart/>
+            
             <SearchBar loadingAPIResponse={loadingAPIResponse} onClickSearch={RequestAPIHandler} />
             {showAPIResponse ? <TweetsList APIresponse={data} /> : <p>Enter items on search bar</p>}
         </div>)

@@ -1,7 +1,7 @@
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 
-const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}, ...];
+const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}];
 
 const Chart = (
   <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
