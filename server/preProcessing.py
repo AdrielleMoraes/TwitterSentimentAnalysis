@@ -75,15 +75,13 @@ tweets['tokenized'] = tweets['msg'].apply(word_tokenize)
 stop_words = set(stopwords.words('english'))
 tweets['no_stop'] = tweets['tokenized'].apply(lambda x: [word for word in x if word not in stop_words])
 
-# Stemming words
-st = nltk.PorterStemmer()
-tweets['stemmed']= tweets['no_stop'].apply(lambda x: [st.stem(word) for word in x])
 
 # Tag words according to their classification
 # noun, verb, adjectives, adverb...
-tweets['pos_tag'] =  tweets['stemmed'].apply(nltk.tag.pos_tag)
+tweets['pos_tag'] =  tweets['no_stop'].apply(nltk.tag.pos_tag)
 
 # Lemmatization
 #This step is more accurate if POS tag are given
 lemmatizer=WordNetLemmatizer()
 tweets['lemmatized']= tweets['pos_tag'].apply(lambda x: [lemmatizer.lemmatize(word[0], pos=nltk_tag_to_wordnet_tag(word[1])) for word in x])
+tweets['total'] = [' '.join(map(str, l)) for l in tweets['lemmatized']] #joining back the list of items into one string
