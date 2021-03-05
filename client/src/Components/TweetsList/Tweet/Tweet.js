@@ -13,6 +13,8 @@ const Tweet = (props) => {
             <List.Description>Created at: {props.created_at}</List.Description>
             <p>{props.text}</p>
             <p>Liked by {props.favourite_count}</p>
+            <h2>Classification: Neutral</h2>
+            <p>Score</p>
         </List.Content>
       </List.Item>
     )
