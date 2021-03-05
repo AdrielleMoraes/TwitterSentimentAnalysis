@@ -8,7 +8,6 @@ const TweetsList = (props) => {
         <div>
             <p>Showing {props.APIresponse.tweets.length} results</p>
             <p>Results for query: {props.APIresponse.query}</p>
-            {/* <p>Data Fetched in {props.APIresponse.completed_in} s</p> */}
             <List selection divided verticalAlign='middle'>
                 {props.APIresponse.tweets.map(tweet => {
                     return <Tweet
