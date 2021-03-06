@@ -16,6 +16,7 @@ const TweetsList = (props) => {
                         id={tweet.id}
                         created_at={tweet.created_at}
                         text={tweet.text}
+                        text_pre = {tweet.pre}
                         hashtags={tweet.hashtags}
                         favourite_count={tweet.favourite_count}
                     />

@@ -14,6 +14,7 @@ const Tweet = (props) => {
             <p>{props.text}</p>
             <p>Liked by {props.favourite_count}</p>
             <h2>Classification: Neutral</h2>
+            <p>{props.text_pre}</p>
             <p>Score</p>
         </List.Content>
       </List.Item>

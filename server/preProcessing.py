@@ -57,6 +57,7 @@ def text_prePro(text):
 
         # Remove stop words
         stop_words = set(stopwords.words('english'))
+        stop_words.remove('not')
         text_stop = [word for word in text_token if word not in stop_words]
 
 

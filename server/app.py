@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import twitterAPI as api
 
+
 app = Flask(__name__)
 
 
@@ -15,6 +16,7 @@ def retrieveFromAPI():
     #TODO sanitize query
     print(query)
     apiResponse = api.queryOnTwitterAPI(query=query, count=20)
+    print(apiResponse)
     return apiResponse
 
 if __name__ == '__main__':

@@ -1,6 +1,9 @@
 from APIkeys import ACESS_TOKEN, ACESS_TOKEN_SECRET, API_KEY, API_KEY_SECRET
 import tweepy
 
+# return items preprocessed/classified
+import preProcessing as preP
+
 
 def queryOnTwitterAPI(query="covid19 pandemic -filter:retweets", count= 3):
     auth = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
@@ -20,6 +23,7 @@ def queryOnTwitterAPI(query="covid19 pandemic -filter:retweets", count= 3):
         except AttributeError:
             row["hashtags"] = []
         row["text"] = tweet.full_text
+        row["pre"]= preP.text_prePro(tweet.full_text)
         tweets.append(row)
 
     data_obj = {"completed_in": public_tweets.completed_in, "query":public_tweets.query, "count":public_tweets.count, "tweets": tweets}
