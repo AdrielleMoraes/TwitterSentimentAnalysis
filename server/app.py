@@ -13,10 +13,9 @@ def retrieveFromAPI():
         return "Argument not provided"
 
     query = query + " -filter:retweets"
+    
     #TODO sanitize query
-    print(query)
     apiResponse = api.queryOnTwitterAPI(query=query, count=20)
-    print(apiResponse)
     return apiResponse
 
 if __name__ == '__main__':

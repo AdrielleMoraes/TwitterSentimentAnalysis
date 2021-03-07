@@ -1,15 +1,35 @@
-import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
+import React, { Component } from 'react';
 
+import '../../../node_modules/react-vis/dist/style.css';
+import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
 
-const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400}];
+class Chart extends Component {
+  render() {
+    const data = [
+      {x: 0, y: 8},
+      {x: 1, y: 5},
+      {x: 2, y: 4},
+      {x: 3, y: 9},
+      {x: 4, y: 1},
+      {x: 5, y: 7},
+      {x: 6, y: 6},
+      {x: 7, y: 3},
+      {x: 8, y: 2},
+      {x: 9, y: 0}
+    ];
+    return (
+      <div className="">
+        <h1>Tweets Distribution</h1>
+        <XYPlot height={300} width= {300}>
+          <LineSeries data={data} />
+          <VerticalGridLines />
+          <HorizontalGridLines />
+          <XAxis />
+          <YAxis />
+        </XYPlot>
+      </div>
+    );
+  }
+}
 
-const Chart = (
-  <LineChart width={600} height={300} data={data} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>
-    <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-    <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-    <XAxis dataKey="name" />
-    <YAxis />
-    <Tooltip />
-  </LineChart>
-);
 export default Chart;

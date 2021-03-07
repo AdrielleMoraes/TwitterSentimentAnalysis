@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import TweetsList from "../TweetsList/TweetsList"
 import SearchBar from "../SearchBar/SearchBar"
-import Chart from "../Graphs/Chart"
+import TabMenu from "../TabMenu/TabMenu"
 
 const QueryTweet = (props) => {
 
@@ -24,9 +23,8 @@ const QueryTweet = (props) => {
 
     return (
         <div>
-            
             <SearchBar loadingAPIResponse={loadingAPIResponse} onClickSearch={RequestAPIHandler} />
-            {showAPIResponse ? <TweetsList APIresponse={data} /> : <p>Enter items on search bar</p>}
+            <TabMenu data={data} showAPIResponse={showAPIResponse}></TabMenu>
         </div>)
 }
 

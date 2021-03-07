@@ -23,7 +23,7 @@ def queryOnTwitterAPI(query="covid19 pandemic -filter:retweets", count= 3):
         except AttributeError:
             row["hashtags"] = []
         row["text"] = tweet.full_text
-        row["pre"]= preP.text_prePro(tweet.full_text)
+        row["pre"]= preP.classifyText(tweet.full_text)
         tweets.append(row)
 
     data_obj = {"completed_in": public_tweets.completed_in, "query":public_tweets.query, "count":public_tweets.count, "tweets": tweets}

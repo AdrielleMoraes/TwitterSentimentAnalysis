@@ -8,6 +8,9 @@ from yellowbrick.text import PosTagVisualizer
 import contractions
 import re
 
+import joblib
+
+
 # function to convert nltk tag to wordnet tag
 def nltk_tag_to_wordnet_tag(nltk_tag):
     if nltk_tag.startswith('J'):
@@ -74,3 +77,13 @@ def text_prePro(text):
     else:
         print("Enter a valid string")
 
+def classifyText(text):
+    model_file = "model.pkl"
+    # Load from file
+    model = joblib.load(model_file)
+
+    pre_text = text_prePro(text)
+    pred = model.predict([pre_text])
+    if pred[0] == 1:
+        return "Positive"
+    return "Negative"
