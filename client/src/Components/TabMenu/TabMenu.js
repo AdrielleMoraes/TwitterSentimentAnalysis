@@ -80,7 +80,7 @@ export default function TabMenu(props) {
         {props.showAPIResponse ? <TweetsList APIresponse={props.data} /> : <p>Enter items on search bar</p>}
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Chart></Chart>
+        {props.showAPIResponse ? <Chart/>: <p>Enter items on search bar</p>}
       </TabPanel>
     </div>
   );

@@ -10,12 +10,10 @@ const Tweet = (props) => {
         </List.Content>
         <List.Content>
             <List.Header>{props.name} <a target="blank" href={"https://twitter.com/user/status/"+ props.id}>Visit</a></List.Header>
-            <List.Description>Created at: {props.created_at}</List.Description>
+            <List.Description>Created at: {props.created_at} - Liked by {props.favourite_count}</List.Description>
+            <p></p>
             <p>{props.text}</p>
-            <p>Liked by {props.favourite_count}</p>
-            <h2>Classification: Neutral</h2>
-            <p>{props.text_pre}</p>
-            <p>Score</p>
+            <h4>Classification: {props.text_pre}</h4>
         </List.Content>
       </List.Item>
     )

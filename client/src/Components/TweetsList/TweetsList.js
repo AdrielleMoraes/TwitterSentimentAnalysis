@@ -1,7 +1,7 @@
 import React from "react"
 import { List } from 'semantic-ui-react'
 import Tweet from "./Tweet/Tweet"
-
+import "./TweetsList.css"
 
 const TweetsList = (props) => {
 
