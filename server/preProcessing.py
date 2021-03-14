@@ -108,5 +108,5 @@ def classifyText(text):
 
     pred = model.predict([pre_text])
     if pred[0] == 1:
-        return "Positive | Vader: {}".format(vader_score)
-    return "Negative | Vader: {}".format(vader_score)
+        return "Positive vs Vader: {}".format(vader_score)
+    return "Negative vs Vader: {}".format(vader_score)
