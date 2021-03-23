@@ -99,7 +99,7 @@ def calculateVaderResult(vader_score):
 
 def classifyText(text):
     model_file = "model.pkl"
-    # Load from file
+    # Load from file -  this uses tf idf to extract features from data
     model = joblib.load(model_file)
 
     pre_text = text_prePro(text)
