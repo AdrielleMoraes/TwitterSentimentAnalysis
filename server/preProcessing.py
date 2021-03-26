@@ -4,7 +4,6 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
-from yellowbrick.text import PosTagVisualizer
 import contractions
 import re
 

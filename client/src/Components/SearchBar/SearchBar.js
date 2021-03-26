@@ -1,4 +1,4 @@
-import React, { useState, useRef, createRef } from 'react'
+import React, { useState} from 'react'
 import { Form, Icon, Input } from 'semantic-ui-react'
 
 const SearchBar = (props) => {
@@ -20,8 +20,6 @@ const SearchBar = (props) => {
                 <button type="submit" className="buttontest"><Icon name="search" /></button>
 
             </div>
-
-
         </Form>
     )
 }

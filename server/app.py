@@ -18,8 +18,9 @@ def retrieveFromAPI():
     apiResponse = api.queryOnTwitterAPI(query=query, count=20)
     return apiResponse
 
+
 @app.route('/camera')
-def retrieveFromAPI():
+def returnCamera():
     return("Hello")
 
 def gen(camera):
@@ -34,5 +35,5 @@ def video_feed():
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=8888)
 

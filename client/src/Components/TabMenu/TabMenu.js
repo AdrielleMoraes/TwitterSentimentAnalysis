@@ -74,6 +74,7 @@ export default function TabMenu(props) {
       >
         <Tab className={classes.tab} label="Tweets" {...a11yProps(0)} />
         <Tab className={classes.tab} label="Distribution" {...a11yProps(1)} />
+        <Tab className={classes.tab} label="Video" {...a11yProps(2)} />
       </Tabs>
 
       <TabPanel value={value} index={0}>
@@ -81,6 +82,9 @@ export default function TabMenu(props) {
       </TabPanel>
       <TabPanel value={value} index={1}>
         {props.showAPIResponse ? <Chart/>: <p>Enter items on search bar</p>}
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        <img id='bg' width='800px' height='640px' src=''></img>
       </TabPanel>
     </div>
   );
