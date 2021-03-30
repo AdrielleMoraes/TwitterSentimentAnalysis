@@ -41,4 +41,5 @@ class VideoCamera(object):
             cv2.rectangle(fr,(x,y),(x+w,y+h),(255,0,0),2)
 
         _, jpeg = cv2.imencode('.jpg', fr)
+
         return jpeg.tobytes()
