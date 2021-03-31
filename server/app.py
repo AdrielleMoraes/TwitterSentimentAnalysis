@@ -12,7 +12,7 @@ def retrieveFromAPI():
     if query is None:
         return "Argument not provided"
 
-    query = query + " -filter:retweets"
+    query = query + " -filter:retweets replies"
     
     #TODO sanitize query
     apiResponse = api.queryOnTwitterAPI(query=query, count=20)
