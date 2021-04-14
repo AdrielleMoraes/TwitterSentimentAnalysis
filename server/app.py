@@ -1,11 +1,20 @@
 from flask import Flask, render_template, request, Response
+from flask_cors import CORS, cross_origin
 import twitterAPI as api
-from camera import VideoCamera
-
-app = Flask(__name__)
 
 
-@app.route('/retrieveFromAPI')
+app = Flask(__name__, static_folder='client/build', static_url_path='')
+cors = CORS(app)
+
+
+@app.route('/api')
+@cross_origin()
+def Welcome():
+    return "Welcome to the API!!!"
+
+
+@app.route('/api/tweets')
+@cross_origin()
 def retrieveFromAPI():
     query = request.args.get('query')
 
@@ -18,23 +27,9 @@ def retrieveFromAPI():
     apiResponse = api.queryOnTwitterAPI(query=query, count=20)
     return apiResponse
 
-
-@app.route('/camera')
-def returnCamera():
-    return("Hello")
-
-def gen(camera):
-    while True:
-        frame = camera.get_frame()
-        print(b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n\r\n')
-
-@app.route('/video_feed')
-def video_feed():
-    return Response(gen(VideoCamera()),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
