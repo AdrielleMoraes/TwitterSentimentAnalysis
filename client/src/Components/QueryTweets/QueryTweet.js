@@ -9,7 +9,7 @@ const QueryTweet = (props) => {
     const [showAPIResponse, setShowAPIResponse] = useState(false)
 
     const fetchTweets = (query) => {
-        fetch(`/retrieveFromAPI?query=${query}`).then(response => response.json().then(data => {
+        fetch(`/api/tweets?query=${query}`).then(response => response.json().then(data => {
             setShowAPIResponse(true)
             setData(data)
             setLoadingAPIResponse(false)

@@ -1,15 +1,28 @@
-from APIkeys import ACESS_TOKEN, ACESS_TOKEN_SECRET, API_KEY, API_KEY_SECRET
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 import tweepy
 
 # return items preprocessed/classified
 import preProcessing as preP
 
 
-def queryOnTwitterAPI(query="covid19 pandemic -filter:retweets", count= 3):
+def authAPI():
+    API_KEY = os.environ.get("API_KEY")
+    API_KEY_SECRET = os.environ.get("API_KEY_SECRET")
+    ACESS_TOKEN = os.environ.get("ACESS_TOKEN")
+    ACESS_TOKEN_SECRET = os.environ.get("ACESS_TOKEN_SECRET")
+
     auth = tweepy.OAuthHandler(API_KEY, API_KEY_SECRET)
     auth.set_access_token(ACESS_TOKEN, ACESS_TOKEN_SECRET)
     api = tweepy.API(auth)
 
+    return api
+
+api = authAPI()
+
+def queryOnTwitterAPI(query="covid19 pandemic -filter:retweets replies", count= 3):
     public_tweets = api.search(query, count=count, lang="en", tweet_mode='extended')
     tweets = []
     for tweet in public_tweets:

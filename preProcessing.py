@@ -6,6 +6,7 @@ from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
 import contractions
 import re
+import model_nn as nn
 
 import joblib
 
@@ -23,7 +24,6 @@ def nltk_tag_to_wordnet_tag(nltk_tag):
         return wordnet.ADV
     else:          
         return wordnet.NOUN
-
 
 def cleaning_email(data):
     return re.sub('@[^\s]+', '', data)
@@ -97,7 +97,7 @@ def calculateVaderResult(vader_score):
     return vader_result
 
 def classifyText(text):
-    model_file = "model.pkl"
+    model_file = "Models/model.pkl"
     # Load from file -  this uses tf idf to extract features from data
     model = joblib.load(model_file)
 
@@ -106,6 +106,12 @@ def classifyText(text):
     vader_score = classifyText_Vader(pre_text)
 
     pred = model.predict([pre_text])
+
+    # nn model
+    pred_nn = nn.predictText(pre_text)
+
     if pred[0] == 1:
-        return "Positive | Vader: {}".format(vader_score)
-    return "Negative | Vader: {}".format(vader_score)
+        return "{} | Positive | Vader: {}".format(pred_nn, vader_score)
+    if pred[0] == -1:
+        return "{} | Negative | Vader: {}".format(pred_nn, vader_score)
+    return "{} | Neutral | Vader: {}".format(pred_nn, vader_score)
