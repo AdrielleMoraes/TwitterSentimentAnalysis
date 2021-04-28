@@ -12,7 +12,7 @@ set_session(session)
 
 class TweetPolarityModel(object):
 
-    SENTIMENT_LIST = ["Positive","Neutral", "Negative"]
+    SENTIMENT_LIST = [-1,0, 1]
 
     def __init__(self, model_json_file, model_weights_file):
         # load model from JSON file
@@ -22,11 +22,11 @@ class TweetPolarityModel(object):
 
         # load weights into the new model
         self.loaded_model.load_weights(model_weights_file)
-        #self.loaded_model.compile()
-        #self.loaded_model._make_predict_function()
+
 
     def predict_polarity(self, tweet):
         global session
         set_session(session)
         self.preds = self.loaded_model.predict(tweet)
-        return TweetPolarityModel.SENTIMENT_LIST[np.argmax(self.preds)]
+        print (self.preds)
+        #return TweetPolarityModel#.SENTIMENT_LIST[np.argmax(self.preds)]

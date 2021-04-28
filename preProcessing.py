@@ -109,6 +109,7 @@ def classifyText(text):
 
     # nn model
     pred_nn = nn.predictText(pre_text)
+    pred_nn = "none"
 
     if pred[0] == 1:
         return "{} | Positive | Vader: {}".format(pred_nn, vader_score)
