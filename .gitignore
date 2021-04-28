@@ -3,7 +3,7 @@
 # server side
 
 env
-.venv
+.virenv
 .vscode
 __pycache__
 uploads
