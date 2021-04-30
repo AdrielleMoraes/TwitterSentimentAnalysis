@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, Response, send_from_directory
+from flask import Flask, render_template, request, Response
 from flask_cors import CORS, cross_origin
-import twitterAPI as api
+import twitterAPI
 
 
-app = Flask(__name__, static_folder='client/build', static_url_path='')
+app = Flask(__name__)
 cors = CORS(app)
+api = twitterAPI.TweetsQuery()
 
 
 @app.route('/api')
@@ -21,16 +22,15 @@ def retrieveFromAPI():
     if query is None:
         return "Argument not provided"
 
-    query = query + " -filter:retweets replies"
+    query = query
     
     #TODO sanitize query
-    apiResponse = api.queryOnTwitterAPI(query=query, count=20)
+    apiResponse = api.queryOnTwitterAPI(query=query)
     return apiResponse
 
 @app.route('/')
 def serve():
     return("Welcome")
-    #return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
