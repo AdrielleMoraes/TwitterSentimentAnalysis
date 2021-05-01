@@ -7,9 +7,9 @@ const TopMenu = (props) => {
   return (
     <div className="TopMenu">
       <Breadcrumb className="Breadcrumb" size="huge">
-        <Breadcrumb.Section link>Home</Breadcrumb.Section>
+        <a href='https://adriellemoraes.com/' >Home</a>
         <Breadcrumb.Divider />
-        <Breadcrumb.Section active>About</Breadcrumb.Section>
+        <Breadcrumb.Section active>Tweets</Breadcrumb.Section>
       </Breadcrumb>
     </div>
   )
