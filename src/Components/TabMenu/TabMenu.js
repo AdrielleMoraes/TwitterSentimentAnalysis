@@ -87,7 +87,7 @@ export default function FullWidthTabs(props) {
           {props.showAPIResponse ? <TweetsList APIresponse={props.data} /> : <p>Enter items on search bar</p>}
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          {props.showAPIResponse ? <Chart data={props.data}/>: <p>Enter items on search bar</p>}
+          {props.showAPIResponse ? <div><h2>Tweets Classification Distribution</h2><Chart data={props.data}/></div>: <p>Enter items on search bar</p>}
         </TabPanel>
       </SwipeableViews>
     </div>

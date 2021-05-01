@@ -13,7 +13,9 @@ const QueryTweet = (props) => {
             setShowAPIResponse(true)
             setData(data)
             setLoadingAPIResponse(false)
-        }))
+        })).catch(error => {
+            setLoadingAPIResponse(false)
+          })
     }
 
     const RequestAPIHandler = (query) => {

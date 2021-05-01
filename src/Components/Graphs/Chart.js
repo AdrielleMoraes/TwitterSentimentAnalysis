@@ -37,14 +37,18 @@ class App extends Component{
 
 
     const data = [
+      {x: '', y: 0},
       {x: 'Positive', y: vader_count[0]},
       {x: 'Neutral', y: vader_count[1]},
-      {x: 'Negative', y: vader_count[2]}
+      {x: 'Negative', y: vader_count[2]},
+      {x: ' ', y: 0}
     ];
     const data2 = [
+      {x: '', y: 0},
       {x: 'Positive', y: bow_count[0]},
       {x: 'Neutral', y: bow_count[1]},
-      {x: 'Negative', y: bow_count[2]}
+      {x: 'Negative', y: bow_count[2]},
+      {x: ' ', y: 0}
     ];
     const labelData = data.map((d, idx) => ({
       x: d.x,
@@ -54,16 +58,14 @@ class App extends Component{
       <div className="App">
         <FlexibleWidthXYPlot xType="ordinal" height={500} >
         <DiscreteColorLegend
-            style={{position: 'absolute', left: '50px', top: '20px'}}
+            style={{position: 'absolute', left: '50px', top: '10px'}}
             orientation="horizontal"
             items={[
               {
                 title: 'Vader',
-                color: '#12939A'
               },
               {
                 title: 'BOW',
-                color: '#79C7E3'
               }
             ]}
           />

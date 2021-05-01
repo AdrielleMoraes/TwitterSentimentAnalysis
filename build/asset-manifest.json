@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/TwitterSentimentAnalysis/static/css/main.9d1095a1.chunk.css",
-    "main.js": "/TwitterSentimentAnalysis/static/js/main.c50ed976.chunk.js",
-    "main.js.map": "/TwitterSentimentAnalysis/static/js/main.c50ed976.chunk.js.map",
+    "main.js": "/TwitterSentimentAnalysis/static/js/main.9f9c40f5.chunk.js",
+    "main.js.map": "/TwitterSentimentAnalysis/static/js/main.9f9c40f5.chunk.js.map",
     "runtime-main.js": "/TwitterSentimentAnalysis/static/js/runtime-main.aa2b4d98.js",
     "runtime-main.js.map": "/TwitterSentimentAnalysis/static/js/runtime-main.aa2b4d98.js.map",
     "static/css/2.e157681c.chunk.css": "/TwitterSentimentAnalysis/static/css/2.e157681c.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.e157681c.chunk.css",
     "static/js/2.7dc8a438.chunk.js",
     "static/css/main.9d1095a1.chunk.css",
-    "static/js/main.c50ed976.chunk.js"
+    "static/js/main.9f9c40f5.chunk.js"
   ]
 }
