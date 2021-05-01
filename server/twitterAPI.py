@@ -47,14 +47,14 @@ class TweetsQuery(object):
         # start stream
         myStreamListener = MyStreamListener()
         myStream = tweepy.Stream(auth = self.api.auth, listener=myStreamListener)
-        myStream.filter(track=query.split(' '))
+        myStream.filter(track=query.split(' '), languages=["en"])
 
         public_tweets = myStreamListener.tweets
 
         tweets = []
         for tweet in public_tweets:
             tweet = json.loads(tweet)
-            if not tweet['retweeted']:
+            if not tweet['retweeted'] and 'RT @' not in tweet['text']:
                 # do something with standard tweets
                 row = {}
                 row["id"] = tweet['id_str']

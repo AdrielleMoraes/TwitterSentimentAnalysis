@@ -22,8 +22,7 @@ def retrieveFromAPI():
     if query is None:
         return "Argument not provided"
 
-    query = query
-    
+    query = query   
     #TODO sanitize query
     apiResponse = api.queryOnTwitterAPI(query=query)
     return apiResponse
