@@ -3,22 +3,48 @@ import '../../../node_modules/react-vis/dist/style.css';
 
 import React, { Component } from 'react';
 
-import {XYPlot, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, VerticalBarSeries, LabelSeries,
+import {VerticalGridLines, HorizontalGridLines, XAxis, YAxis, VerticalBarSeries, LabelSeries,
   FlexibleWidthXYPlot,  DiscreteColorLegend } from 'react-vis';
 
 
-class App extends Component {
-  
+class App extends Component{
   render() {
+    let vader_count = [0,0,0]
+    let bow_count = [0,0,0]
+
+    this.props.data.tweets.map(tweet =>{
+      console.log(tweet.vader) 
+      if (tweet.vader === 'Positive'){
+        vader_count[0]++
+      }
+      if (tweet.vader === 'Neutral'){
+        vader_count[1]++
+      }
+      if (tweet.vader === 'Negative'){
+        vader_count[2]++
+      }
+
+      if (tweet.bow === 'Positive'){
+        bow_count[0]++
+      }
+      if (tweet.bow === 'Neutral'){
+        bow_count[1]++
+      }
+      if (tweet.bow === 'Negative'){
+        bow_count[2]++
+      }
+    })
+
+
     const data = [
-      {x: 'Positive', y: 10},
-      {x: 'Negative', y: 5},
-      {x: 'Neutral', y: 15}
+      {x: 'Positive', y: vader_count[0]},
+      {x: 'Neutral', y: vader_count[1]},
+      {x: 'Negative', y: vader_count[2]}
     ];
     const data2 = [
-      {x: 'Positive', y: 3},
-      {x: 'Negative', y: 25},
-      {x: 'Neutral', y: 8}
+      {x: 'Positive', y: bow_count[0]},
+      {x: 'Neutral', y: bow_count[1]},
+      {x: 'Negative', y: bow_count[2]}
     ];
     const labelData = data.map((d, idx) => ({
       x: d.x,
