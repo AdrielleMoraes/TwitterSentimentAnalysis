@@ -16,3 +16,13 @@ div .input {
     right: 0;
     height: 100%;
 }
+
+.hashtag{
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 3px;
+    font-size: small;
+    display: inline-block;
+}

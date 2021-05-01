@@ -9,7 +9,7 @@ const QueryTweet = (props) => {
     const [showAPIResponse, setShowAPIResponse] = useState(false)
 
     const fetchTweets = (query) => {
-        fetch(`/api/tweets?query=${query}`).then(response => response.json().then(data => {
+        fetch(`https://tweet-analysis-app.herokuapp.com/api/tweets?query=${query}`).then(response => response.json().then(data => {
             setShowAPIResponse(true)
             setData(data)
             setLoadingAPIResponse(false)
