@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import SwipeableViews from 'react-swipeable-views';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -16,8 +18,8 @@ function TabPanel(props) {
     <div
       role="tabpanel"
       hidden={value !== index}
-      id={`vertical-tabpanel-${index}`}
-      aria-labelledby={`vertical-tab-${index}`}
+      id={`full-width-tabpanel-${index}`}
+      aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
       {value === index && (
@@ -37,51 +39,57 @@ TabPanel.propTypes = {
 
 function a11yProps(index) {
   return {
-    id: `vertical-tab-${index}`,
-    'aria-controls': `vertical-tabpanel-${index}`,
+    id: `full-width-tab-${index}`,
+    'aria-controls': `full-width-tabpanel-${index}`,
   };
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
-    display: 'flex',
-    height: `${100}%`,
-  },
-  tabs: {
-    borderRight: `1px solid ${theme.palette.divider}`,
   },
 }));
 
-export default function TabMenu(props) {
+export default function FullWidthTabs(props) {
   const classes = useStyles();
+  const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+  const handleChangeIndex = (index) => {
+    setValue(index);
+  };
+
   return (
     <div className={classes.root}>
-      <Tabs
-        orientation="vertical"
-        variant="scrollable"
-        value={value}
-        onChange={handleChange}
-        aria-label="Vertical tabs example"
-        className={classes.tabs}
+      <AppBar position="static" color="default">
+        <Tabs
+          value={value}
+          onChange={handleChange}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          aria-label="full width tabs example"
+        >
+          <Tab label="Tweets" {...a11yProps(0)} />
+          <Tab label="Distribution" {...a11yProps(1)} />
+        </Tabs>
+      </AppBar>
+      <SwipeableViews
+        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+        index={value}
+        onChangeIndex={handleChangeIndex}
       >
-        <Tab className={classes.tab} label="Tweets" {...a11yProps(0)} />
-        <Tab className={classes.tab} label="Distribution" {...a11yProps(1)} />
-      </Tabs>
-
-      <TabPanel value={value} index={0}>
-        {props.showAPIResponse ? <TweetsList APIresponse={props.data} /> : <p>Enter items on search bar</p>}
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        {props.showAPIResponse ? <Chart/>: <p>Enter items on search bar</p>}
-      </TabPanel>
+        <TabPanel value={value} index={0} dir={theme.direction}>
+          {props.showAPIResponse ? <TweetsList APIresponse={props.data} /> : <p>Enter items on search bar</p>}
+        </TabPanel>
+        <TabPanel value={value} index={1} dir={theme.direction}>
+          {props.showAPIResponse ? <Chart/>: <p>Enter items on search bar</p>}
+        </TabPanel>
+      </SwipeableViews>
     </div>
   );
 }

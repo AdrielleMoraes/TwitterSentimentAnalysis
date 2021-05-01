@@ -1,35 +1,57 @@
+import '../../../node_modules/react-vis/dist/style.css';
+
+
 import React, { Component } from 'react';
 
-import '../../../node_modules/react-vis/dist/style.css';
-import {XYPlot, LineSeries, VerticalGridLines, HorizontalGridLines, XAxis, YAxis} from 'react-vis';
+import {XYPlot, VerticalGridLines, HorizontalGridLines, XAxis, YAxis, VerticalBarSeries, LabelSeries,
+  FlexibleWidthXYPlot,  DiscreteColorLegend } from 'react-vis';
 
-class Chart extends Component {
+
+class App extends Component {
+  
   render() {
     const data = [
-      {x: 0, y: 8},
-      {x: 1, y: 5},
-      {x: 2, y: 4},
-      {x: 3, y: 9},
-      {x: 4, y: 1},
-      {x: 5, y: 7},
-      {x: 6, y: 6},
-      {x: 7, y: 3},
-      {x: 8, y: 2},
-      {x: 9, y: 0}
+      {x: 'Positive', y: 10},
+      {x: 'Negative', y: 5},
+      {x: 'Neutral', y: 15}
     ];
+    const data2 = [
+      {x: 'Positive', y: 3},
+      {x: 'Negative', y: 25},
+      {x: 'Neutral', y: 8}
+    ];
+    const labelData = data.map((d, idx) => ({
+      x: d.x,
+      y: Math.max(data[idx].y, data2[idx].y)
+    }));
     return (
-      <div className="">
-        <h1>Tweets Distribution</h1>
-        <XYPlot height={300} width= {300}>
-          <LineSeries data={data} />
-          <VerticalGridLines />
-          <HorizontalGridLines />
-          <XAxis />
-          <YAxis />
-        </XYPlot>
+      <div className="App">
+        <FlexibleWidthXYPlot xType="ordinal" height={500} >
+        <DiscreteColorLegend
+            style={{position: 'absolute', left: '50px', top: '20px'}}
+            orientation="horizontal"
+            items={[
+              {
+                title: 'Vader',
+                color: '#12939A'
+              },
+              {
+                title: 'BOW',
+                color: '#79C7E3'
+              }
+            ]}
+          />
+        <XAxis />
+        <YAxis />
+        <VerticalBarSeries  data={data} />
+        <VerticalBarSeries  data={data2} />
+        <VerticalGridLines />
+        <HorizontalGridLines />
+        </FlexibleWidthXYPlot>
+        <LabelSeries data={labelData} />
       </div>
     );
   }
 }
 
-export default Chart;
+export default App;
