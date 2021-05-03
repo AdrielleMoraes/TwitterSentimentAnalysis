@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/TwitterSentimentAnalysis/static/css/main.76887358.chunk.css",
-    "main.js": "/TwitterSentimentAnalysis/static/js/main.1d21bda8.chunk.js",
-    "main.js.map": "/TwitterSentimentAnalysis/static/js/main.1d21bda8.chunk.js.map",
+    "main.css": "/TwitterSentimentAnalysis/static/css/main.4f62e2fa.chunk.css",
+    "main.js": "/TwitterSentimentAnalysis/static/js/main.b308c92d.chunk.js",
+    "main.js.map": "/TwitterSentimentAnalysis/static/js/main.b308c92d.chunk.js.map",
     "runtime-main.js": "/TwitterSentimentAnalysis/static/js/runtime-main.aa2b4d98.js",
     "runtime-main.js.map": "/TwitterSentimentAnalysis/static/js/runtime-main.aa2b4d98.js.map",
     "static/css/2.e157681c.chunk.css": "/TwitterSentimentAnalysis/static/css/2.e157681c.chunk.css",
-    "static/js/2.ee6257e3.chunk.js": "/TwitterSentimentAnalysis/static/js/2.ee6257e3.chunk.js",
-    "static/js/2.ee6257e3.chunk.js.map": "/TwitterSentimentAnalysis/static/js/2.ee6257e3.chunk.js.map",
+    "static/js/2.4e5014d9.chunk.js": "/TwitterSentimentAnalysis/static/js/2.4e5014d9.chunk.js",
+    "static/js/2.4e5014d9.chunk.js.map": "/TwitterSentimentAnalysis/static/js/2.4e5014d9.chunk.js.map",
     "static/js/3.c765f250.chunk.js": "/TwitterSentimentAnalysis/static/js/3.c765f250.chunk.js",
     "static/js/3.c765f250.chunk.js.map": "/TwitterSentimentAnalysis/static/js/3.c765f250.chunk.js.map",
     "index.html": "/TwitterSentimentAnalysis/index.html",
     "static/css/2.e157681c.chunk.css.map": "/TwitterSentimentAnalysis/static/css/2.e157681c.chunk.css.map",
-    "static/css/main.76887358.chunk.css.map": "/TwitterSentimentAnalysis/static/css/main.76887358.chunk.css.map",
-    "static/js/2.ee6257e3.chunk.js.LICENSE.txt": "/TwitterSentimentAnalysis/static/js/2.ee6257e3.chunk.js.LICENSE.txt",
+    "static/css/main.4f62e2fa.chunk.css.map": "/TwitterSentimentAnalysis/static/css/main.4f62e2fa.chunk.css.map",
+    "static/js/2.4e5014d9.chunk.js.LICENSE.txt": "/TwitterSentimentAnalysis/static/js/2.4e5014d9.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/TwitterSentimentAnalysis/static/media/outline-icons.ddae9b1b.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.aa2b4d98.js",
     "static/css/2.e157681c.chunk.css",
-    "static/js/2.ee6257e3.chunk.js",
-    "static/css/main.76887358.chunk.css",
-    "static/js/main.1d21bda8.chunk.js"
+    "static/js/2.4e5014d9.chunk.js",
+    "static/css/main.4f62e2fa.chunk.css",
+    "static/js/main.b308c92d.chunk.js"
   ]
 }
