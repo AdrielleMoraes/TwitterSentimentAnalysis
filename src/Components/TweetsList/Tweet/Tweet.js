@@ -7,9 +7,9 @@ const Tweet = (props) => {
       hashtags = <h4>Hashtags: {props.hashtags.map(hashtag => <div className="hashtag">#{hashtag} </div>)}</h4>
     }
     return(
-        <List.Item>
-        <List.Content>
-            <List.Header>{props.name} <a target="blank" href={"https://twitter.com/user/status/"+ props.id}>Visit</a></List.Header>
+        <List.Item >
+        <List.Content className="tweet">
+            <List.Header>{props.name} <a target="blank" href={"https://twitter.com/user/status/"+ props.id}>Visit tweet</a></List.Header>
             <List.Description>Created at: {props.created_at} - Liked by {props.favourite_count}</List.Description>
             <p></p>
             <p>{props.text}</p>

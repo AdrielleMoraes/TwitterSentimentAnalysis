@@ -18,8 +18,8 @@ div .input {
 }
 
 .hashtag{
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
+    color: #00529B;
+	background-color: #BDE5F8;
     border-radius: 2px;
     padding: 5px;
     margin: 3px;
@@ -31,3 +31,17 @@ div .input {
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 2px;
   }
+
+.warning-query{
+    background-color: #FEEFB3;
+    color: #9F6000;
+    border-radius: 2px;
+    padding: 5px;
+    margin: 3px;
+    text-align: center;
+    font-size: small;
+}
+
+.tweet{
+    cursor: default !important;
+}

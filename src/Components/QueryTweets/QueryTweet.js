@@ -23,8 +23,10 @@ const QueryTweet = (props) => {
         fetchTweets(query)
     }
 
+    const warning_message = showAPIResponse? null:<p className='warning-query'>The first query may take a while to load.</p>
     return (
         <div>
+            {warning_message}
             <SearchBar loadingAPIResponse={loadingAPIResponse} onClickSearch={RequestAPIHandler} />
             <TabMenu data={data} showAPIResponse={showAPIResponse}></TabMenu>
         </div>)
